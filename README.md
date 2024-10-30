@@ -1,29 +1,78 @@
+<div align="center">
+
 # nG-SetEnvIf
+![](https://img.shields.io/badge/nginx-1.27.2-009639?logo=nginx&logoColor=white)
+![](https://img.shields.io/badge/Apache-2.4.62-D22128?logo=Apache&logoColor=white)
 [![ReDoS detector](https://github.com/t18d/nG-SetEnvIf/actions/workflows/redos-detector.yml/badge.svg?branch=staging)](https://github.com/t18d/nG-SetEnvIf/actions/workflows/redos-detector.yml)
 <p align="right"><em>a project of <a href="https://t18d.github.io/">Open Source by Tonkünstler-on-the-Bund</a></em></p>
 
 &nbsp;  
 &nbsp;  
 &nbsp;  
-nG-SetEnvIf was created as a fork of the [nG Firewall](https://perishablepress.com/ng-firewall/) that replicates its functionality in Apache httpd using `mod_setenvif` and tracks upstream release. The trade-off is between the [efficiency gained](https://httpd.apache.org/docs/2.4/rewrite/avoid.html) over `mod_rewrite` and [having to defer](https://www.webmasterworld.com/apache/4572958.htm) to any existing rewrite rules (_eg_ for [permalink settings](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#disable-mod_rewrite)).
+nG-SetEnvIf is an [nG Firewall](https://perishablepress.com/ng-firewall/) fork that focusses on performance.
 
-The focus being on performance, no logging facility is provided in addition to httpd's native logs. Backreference support has been removed to minimise memory footprint.
+It can be used with both nginx and Apache httpd.
 
-&nbsp;  
-> [!NOTE]
-> httpd's default behaviour (_eg_ [MergeSlashes](https://httpd.apache.org/docs/2.4/mod/core.html#mergeslashes)) overrides certain rules.
+[Installation](#installation) •
+[Configuration](#configuration) •
+[Recipes](#recipes)
+
+</div>
+
+## Installation
+
+### nginx
+
+In `http` context, add
+
+```Nginx
+include /path/to/8g-firewall.conf;
+```
+
+In the relevant `server` context, add
+```Nginx
+include /path/to/8g.conf;
+```
+
+### Apache
+
+In the relevant `<Directory>` section, add
+```ApacheConf
+Include /path/to/8G-SetEnvIf
+```
+
+## Configuration
+
+### nginx
+
+To enable logging, add `$ng_reason` to the relevant `log_format` directive.
+
+For best performance, compile nginx `--with-pcre-jit` and add to the main context
+
+```Nginx
+pcre_jit on;
+```
+
+### Apache
+
+The eponymous module, mod_setenvif, is required, as is mod_authz_core. This is [more efficient](https://httpd.apache.org/docs/trunk/rewrite/avoid.html) than using mod_rewrite.
+
+For best performance, `httpd.conf` [should be used](https://httpd.apache.org/docs/trunk/howto/htaccess.html#when) in preference to `.htaccess`.
 
 > [!WARNING]
-> [Test with mod_rewrite](https://perishablepress.com/ng-firewall-logging/) before deploying nG-SetEnvIf.
+> Test with [Starr's logging suite](https://perishablepress.com/ng-firewall-logging/) and mod_rewrite before deploying in production.
 
-&nbsp;  
-**Use case:** [httpd.conf](https://httpd.apache.org/docs/trunk/howto/htaccess.html#when)  
-**Requires:** `mod_setenvif`, `mod_authz_core`, `mod_log_config`   
-**Docs:** [Apache Module mod_setenvif](https://httpd.apache.org/docs/trunk/mod/mod_setenvif.html), and see the discussion [here](https://httpd.apache.org/docs/trunk/rewrite/access.html#blocking-of-robots)  
-**Recipes:** [Post-quantum KEM](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#post-quantum-kem), [URL normalisation](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#url-normalisation), [block AI crawlers](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#ai-crawlers), [block spam emails](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#spam-emails), [disable `mod_rewrite`](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#disable-mod_rewrite-altogether) (WP), [rate-limiting](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#rate-limit-404s) (WP), [integration with Cloudflare](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#cloudflare)  
-**Known issues:** See project [Wiki](https://github.com/t18d/nG-SetEnvIf/wiki/Known-Issues)  
-**Upstream:** [8G v1.3](https://perishablepress.com/8g-firewall/), courtesy of Jeff Starr  
-**Idea for fork:** Port these rules to Cloudflare's free-tier WAF
+## Recipes
+
+If even nG-SetEnvIf fails to satisfy your passion for performance, read on.
+
+- [Post-quantum KEM](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#post-quantum-kem)
+- [URL normalisation](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#url-normalisation)
+- [Block AI crawlers](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#ai-crawlers)
+- [Block spam emails](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#spam-emails)
+- [Replace mod_rewrite](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#disable-mod_rewrite-altogether) (WP)
+- [Rate-limiting](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#rate-limit-404s) (WP)
+- [Integration with Cloudflare](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#cloudflare)
 
 &nbsp;  
 <hr width="50%">
