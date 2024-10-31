@@ -52,6 +52,7 @@ For best performance, compile nginx `--with-pcre-jit` and add to the main contex
 ```Nginx
 pcre_jit on;
 ```
+and place the `include` directive before any `if`, `rewrite` or `set` within the same context.
 
 ### Apache
 
