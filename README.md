@@ -69,6 +69,7 @@ For best performance, `httpd.conf` [should be used](https://httpd.apache.org/doc
 
 If even nG-SetEnvIf fails to satisfy your passion for performance, read on.
 
+- [Maxim Dounin’s nginx Q&A](https://github.com/t18d/nG-SetEnvIf/wiki/Maxim-Dounin’s-nginx-Q&A)
 - [Post-quantum KEM](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#post-quantum-kem)
 - [URL normalisation](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#url-normalisation)
 - [Block AI crawlers](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#ai-crawlers)
