@@ -69,12 +69,12 @@ For best performance, `httpd.conf` [should be used](https://httpd.apache.org/doc
 
 If even nG-SetEnvIf fails to satisfy your passion for performance, read on.
 
-- [Maxim Dounin’s nginx Q&A](https://github.com/t18d/nG-SetEnvIf/wiki/Maxim-Dounin’s-nginx-Q&A)
+- [Maxim Dounin’s Q&A](https://github.com/t18d/nG-SetEnvIf/wiki/Maxim-Dounin’s-Q&A) (nginx)
 - [Post-quantum KEM](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#post-quantum-kem)
 - [URL normalisation](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#url-normalisation)
 - [Block AI crawlers](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#ai-crawlers)
 - [Block spam emails](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#spam-emails)
-- [Replace mod_rewrite](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#disable-mod_rewrite-altogether) (WP)
+- [Replace mod_rewrite](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#disable-mod_rewrite-altogether) (Apache)
 - [Rate-limiting](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#rate-limit-404s) (WP)
 - [Integration with Cloudflare](https://github.com/t18d/nG-SetEnvIf/wiki/Recipes#cloudflare)
 
