@@ -49,7 +49,7 @@ Include /path/to/8G-SetEnvIf
 
 To enable logging, add `$ng_reason` to the relevant `log_format` directive.
 
-For best performance, compile nginx `--with-pcre-jit` and add to the main context
+For best performance, add to the main context
 
 ```Nginx
 pcre_jit on;
