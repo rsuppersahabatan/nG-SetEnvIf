@@ -79,7 +79,7 @@
 	SetEnvIfNoCase Request_URI ^/(?:123|backup|bak|beta|bkp|default|demo|dev(?:new|old)?|home|new-?site|null|old|old_files|old1)/?$ bot
 	SetEnvIfNoCase Request_URI j\s*a\s*v\s*a bot
 	SetEnvIfNoCase Request_URI ^/(?:old-?site(?:back)?|old(?:web)?site(?:here)?|sites?|staging|undefined|wordpress[0-9]+|wordpress-old)/?$ bot
-	SetEnvIfNoCase Request_URI /(?:filemanager|htdocs|httpdocs|https?|login|mailman|mailto|msoffice|undefined|usage|var|vhosts|webmaster|www)/ bot
+	SetEnvIfNoCase Request_URI /(?:filemanager|htdocs|httpdocs|https?|mailman|mailto|msoffice|undefined|usage|var|vhosts|webmaster|www)/ bot
 	SetEnvIfNoCase Request_URI \(null\)|\{\$itemURL\}|cast\(0x|echo.*kae|etc/passwd|eval\(|null.*null|open_basedir|self/environ|\+union\+all\+select bot
 	SetEnvIfNoCase Request_URI (?:conf\b|conf(?:ig)?)(?:uration)?(?:\.?bak|\.inc|\.old|\.php|\.txt) bot
 	SetEnvIfNoCase Request_URI /(?:.*crlf-?injection|.*xss-?protection|__(?:inc|jsc)|administrator|author-panel|cgi-bin|database|downloader|(?:db|mysql)-?admin)/ bot
@@ -103,7 +103,7 @@
 	SetEnvIfNoCase Request_URI handler_to_code|hax(?:0|o)r|hmei7|hnap1|home_url=|ibqyiove|icxbsx|indoxploi|jahat|jijle3|kcrew|keywordspy|laobiao|lock360|longdog|marijuan|mod_(?:aratic|ariimag) bot
 	SetEnvIfNoCase Request_URI mobiquo|muiebl|nessus|osbxamip|phpunit|priv8|qcmpecgy|r3vn330|racrew|raiz0|reportserver|r00t|respectmus|rom2823|roseleif|sh3ll|site.{0,2}copier|sqlpatch|sux0r bot
 	SetEnvIfNoCase Request_URI sym403|telerik|uddatasql|utchiha|visualfrontend|w0rm|wangdafa|wpyii2|wsoyanzo|x5cv|xattack|xbaner|xertive|xiaolei|xltavrat|xorz|xsamxad|xsvip|xxxs?s?|zabbix|zebda bot
-	SetEnvIfNoCase Request_URI \.(?:7z|ab4|ace|afm|alfa|as(?:h|m)x?|aspx?|aws|axd|bash|ba?k?|bat|bin|bz2|cfg|cfml?|cgi|cms|conf\b|config|ctl|dat|db|dist|dll|eml|eng(?:ine)?|env|et2|exe|fec|fla|git(?:ignore)?)$ bot
+	SetEnvIfNoCase Request_URI \.(?:7z|ab4|ace|afm|alfa|as(?:h|m)x?|aspx?|aws|axd|bash|ba?k?|bat|bz2|cfg|cfml?|cgi|cms|conf\b|config|ctl|dat|db|dist|dll|eml|eng(?:ine)?|env|et2|exe|fec|fla|git(?:ignore)?)$ bot
 	SetEnvIfNoCase Request_URI \.(?:hg|idea|inc|index|ini|inv|jar|jspa?|lib|local|log|lqd|make|mbf|mdb|mmw|mny|mod(?:ule)?|msi|old|one|orig|out|passwd|pdb|php\.(?:php|suspect(?:ed)?)|php[^\/]|phtml?|pl|profiles?)$ bot
 	SetEnvIfNoCase Request_URI \.(?:psd|pst|ptdb|production|pwd|py|qbb|qdf|rar|rdf|remote|save|sdb|sql|sh|soa|svn|swf|swl|swo|swp|stx|tar|tax|tgz?|theme|tls|tmb|tmd|wok|wow|xsd|xtmpl|xz|ya?ml|za|zlib)$ bot
 
