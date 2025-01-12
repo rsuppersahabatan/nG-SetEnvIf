@@ -14,7 +14,7 @@
 	SetEnvIfExpr "%{QUERY_STRING} =~ m#header:|set-cookie:.*=#i" bot
 	SetEnvIfExpr "%{QUERY_STRING} =~ m#localhost|127(?:\.|%2e)0(?:\.|%2e)0(?:\.|%2e)1#i" bot
 	SetEnvIfExpr "%{QUERY_STRING} =~ m#(?:cmd|command)(?:=|%3d)(?:chdir|mkdir).*x20#i" bot
-	SetEnvIfExpr "%{QUERY_STRING} =~ m#(?:globals|mosconfig[a-z_]{1,22}|request)(?:=|\[)#i" bot
+	SetEnvIfExpr "%{QUERY_STRING} =~ m#(?:globals|mosconfig[a-z_]{1,22}|(?<!SAML)request)(?:=|\[)#i" bot
 	SetEnvIfExpr "%{QUERY_STRING} =~ m#(?:/|%2f)(?:wp-)?config(?:(?:\.|%2e)inc)?(?:\.|%2e)php#i" bot
 	SetEnvIfExpr "%{QUERY_STRING} =~ m#(?:thumbs?(?:_editor|open)?|tim(?:thumbs?)?)(?:\.|%2e)php#i" bot
 	SetEnvIfExpr "%{QUERY_STRING} =~ m#(?:absolute_|base|root_)(?:dir|path)(?:=|%3d)(?:ftp|https?)#i" bot
